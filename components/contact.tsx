@@ -133,7 +133,7 @@ export default function Contact() {
                         href="mailto:contact@example.com"
                         className="text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
-                        contact@example.com
+                        mortadaahmad56@gmail.com
                       </a>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
-                        github.com/username
+                        github.com/mortada335
                       </a>
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
-                        linkedin.com/in/username
+                        linkedin.com/in/mortada-ahmad
                       </a>
                     </div>
                   </div>

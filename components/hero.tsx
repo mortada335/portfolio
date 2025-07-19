@@ -28,7 +28,7 @@ export default function Hero() {
         className="text-center max-w-3xl mx-auto"
       >
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-          <span className="text-primary">Full-Stack</span> Developer
+          <span className="text-primary">Aspiring Full-Stack</span> Developer
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8">
           Building robust web applications from front to back

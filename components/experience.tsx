@@ -16,47 +16,19 @@ type Experience = {
 export default function Experience() {
   const experiences: Experience[] = [
     {
-      company: "TechInnovate Solutions",
-      position: "Senior Full-Stack Developer",
-      period: "Jan 2022 - Present",
+      company: "Aswar Group",
+      position: "Junior Front End Developer",
+      period: "Mar 2025 - Present",
       description: "Leading development of enterprise SaaS platforms for financial services clients.",
-      technologies: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
       responsibilities: [
         "Architected and implemented scalable microservices architecture",
-        "Led a team of 5 developers using Agile methodologies",
         "Optimized application performance, reducing load times by 40%",
         "Implemented CI/CD pipelines with GitHub Actions and AWS",
         "Collaborated with UX designers to create intuitive user interfaces",
       ],
     },
-    {
-      company: "DataFlow Systems",
-      position: "Full-Stack Developer",
-      period: "Mar 2020 - Dec 2021",
-      description: "Developed data visualization and analytics platforms for business intelligence.",
-      technologies: ["React", "Express.js", "MongoDB", "D3.js", "GraphQL", "Docker"],
-      responsibilities: [
-        "Built responsive dashboards with real-time data visualization",
-        "Developed RESTful and GraphQL APIs for data retrieval and manipulation",
-        "Implemented authentication and authorization systems",
-        "Optimized database queries for large datasets",
-        "Participated in code reviews and mentored junior developers",
-      ],
-    },
-    {
-      company: "WebSphere Innovations",
-      position: "Frontend Developer",
-      period: "Jun 2018 - Feb 2020",
-      description: "Created interactive web applications for e-commerce and media clients.",
-      technologies: ["React", "Redux", "JavaScript", "SASS", "Webpack", "Jest"],
-      responsibilities: [
-        "Developed responsive and accessible user interfaces",
-        "Implemented state management with Redux and Context API",
-        "Created reusable component libraries",
-        "Wrote unit and integration tests with Jest and React Testing Library",
-        "Collaborated with backend developers to integrate APIs",
-      ],
-    },
+    
   ]
 
   return (
