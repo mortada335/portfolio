@@ -3,8 +3,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-// Add the import for AnalyticsTracker
-import AnalyticsTracker from "@/components/analytics-tracker"
 import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -12,10 +10,12 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Full-Stack Developer Portfolio",
   description: "A professional portfolio showcasing full-stack development skills and projects",
-    generator: 'v0.dev'
+  icons: {
+    icon: "/favicon.png",
+  }
 }
 
-// Update the RootLayout function to include AnalyticsTracker
+// Update the RootLayout function to exclude AnalyticsTracker
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +26,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Suspense>
-            <AnalyticsTracker />
             {children}
           </Suspense>
         </ThemeProvider>
