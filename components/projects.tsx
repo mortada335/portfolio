@@ -12,6 +12,7 @@ import CodeSnippet from "./code-snippet"
 type Repository = {
   id: number
   name: string
+  description: string
   bullets: string[]
   html_url: string
   homepage: string
@@ -31,6 +32,7 @@ export default function Projects() {
         {
           id: 1,
           name: "Car Gallery Website",
+          description: "A full-stack vehicle showcase platform with smart filtering, comparison tools, and a multi-branch inventory management backend.",
           bullets: [
             "Developed an advanced front-end featuring search filters and car comparison functionality.",
             "Constructed a multi-branch backend to oversee car inventories."
@@ -43,6 +45,7 @@ export default function Projects() {
         {
           id: 2,
           name: "Vue.js Admin Dashboard",
+          description: "A data-driven admin panel featuring dynamic chart visualizations, real-time analytics tables, and secure authentication flows.",
           bullets: [
             "Engineered a feature-rich dashboard with analytics and dynamic data visualization capabilities.",
             "Integrated charts, tables, and authentication."
@@ -55,6 +58,7 @@ export default function Projects() {
         {
           id: 3,
           name: "E-Commerce Admin Dashboard",
+          description: "Enterprise-grade e-commerce management platform rebuilt from the ground up with ShadCN + React, featuring product catalogs, order pipelines, and a unified design system.",
           bullets: [
             "Implemented a completely new UI using ShadCN + React, creating a cleaner, modern, and accessible dashboard experience.",
             "Enhanced dashboard interaction by adding new logic, form handling, and responsive components for product and order management.",
@@ -69,6 +73,7 @@ export default function Projects() {
         {
           id: 4,
           name: "DevConnect",
+          description: "A developer talent discovery platform with profile comparison, salary analytics, and modular architecture designed for seamless backend integration.",
           bullets: [
             "Developed a scalable frontend application enabling discovery, comparison, and hiring of developer profiles.",
             "Implemented centralized state management using React Context + useReducer, simulating backend functionality.",
@@ -84,6 +89,7 @@ export default function Projects() {
         {
           id: 5,
           name: "Jawahir Compound CMS",
+          description: "A content management system for a residential compound, handling resident data, maintenance workflows, and real-time log synchronization.",
           bullets: [
             "Delivered continuous enhancements by fixing critical bugs, improving system reliability, and upgrading UI/UX consistency.",
             "Implemented new user-facing features and optimized component reusability.",
@@ -98,6 +104,7 @@ export default function Projects() {
         {
           id: 6,
           name: "Video Analytics Platform",
+          description: "An intelligent video monitoring dashboard with real-time object detection overlays, analytical API integration, and optimized rendering performance.",
           bullets: [
             "Built new modules from scratch using Vue.js and Tailwind.",
             "Integrated analytical APIs and improved data-handling logic.",
@@ -112,6 +119,7 @@ export default function Projects() {
         {
           id: 7,
           name: "ERP Front-End System",
+          description: "A comprehensive enterprise resource planning frontend with modules for operations tracking, analytics dashboards, and workflow automation.",
           bullets: [
             "Developed new ERP dashboard features including modules for operations, analytics, and workflow monitoring.",
             "Improved UI consistency and usability.",
@@ -126,6 +134,7 @@ export default function Projects() {
         {
           id: 8,
           name: "Al-Taawon Sales Dashboard",
+          description: "A sales management dashboard rebuilt with ShadCN + React, featuring transactional form validation, payment workflows, and consistent design system components.",
           bullets: [
             "Implemented a completely new UI using ShadCN + React.",
             "Enhanced dashboard interaction by adding new logic and form handling.",
@@ -396,7 +405,10 @@ export function useCheckoutForm() {
                     </CardHeader>
                     <CardContent className="flex-grow flex flex-col justify-between">
                       <div className="mb-4">
-                        <ul className="list-disc pl-4 space-y-1.5 text-xs font-semibold group-hover:text-slate-200 text-slate-400 transition-colors duration-300 leading-relaxed min-h-[175px] md:min-h-[155px]">
+                        <p className="text-[13px] text-muted-foreground leading-relaxed mb-3 border-l-2 border-primary/30 pl-3">
+                          {repo.description}
+                        </p>
+                        <ul className="list-disc pl-4 space-y-1.5 text-xs font-semibold group-hover:text-slate-200 text-slate-400 transition-colors duration-300 leading-relaxed">
                           {repo.bullets.map((bullet, idx) => (
                             <li key={idx}>{bullet}</li>
                           ))}

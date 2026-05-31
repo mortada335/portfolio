@@ -3,11 +3,11 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { Database, Globe, Server, Layers } from "lucide-react"
+import { Database, Globe, Server, Layers, CheckCircle2 } from "lucide-react"
 
 type Skill = {
   name: string
-  proficiency: number
+  detail: string
 }
 
 type SkillCategory = {
@@ -22,48 +22,48 @@ export default function Skills() {
       name: "Languages & Frameworks",
       icon: <Globe className="h-5 w-5" />,
       skills: [
-        { name: "JavaScript", proficiency: 92 },
-        { name: "TypeScript", proficiency: 88 },
-        { name: "Vue.js", proficiency: 94 },
-        { name: "React", proficiency: 90 },
-        { name: "Next.js", proficiency: 85 },
-        { name: "NuxtJS", proficiency: 80 },
-        { name: "HTML & CSS", proficiency: 95 }
+        { name: "JavaScript", detail: "Built 10+ production SPAs with ES6+ features" },
+        { name: "TypeScript", detail: "Enforced type safety across large-scale codebases" },
+        { name: "Vue.js", detail: "Primary framework — delivered 5 enterprise dashboards" },
+        { name: "React", detail: "Built modern UIs with hooks, context, and server components" },
+        { name: "Next.js", detail: "SSR/SSG apps with optimized SEO and performance" },
+        { name: "NuxtJS", detail: "Developed SEO-optimized Vue applications" },
+        { name: "HTML & CSS", detail: "Pixel-perfect responsive layouts and semantic markup" },
       ],
     },
     {
       name: "UI & State Management",
       icon: <Layers className="h-5 w-5" />,
       skills: [
-        { name: "Tailwind CSS", proficiency: 95 },
-        { name: "shadcn/ui", proficiency: 90 },
-        { name: "Vuetify", proficiency: 85 },
-        { name: "Pinia", proficiency: 90 },
-        { name: "Zustand & Redux", proficiency: 82 },
-        { name: "TanStack Query", proficiency: 85 },
-        { name: "SCSS / CSS Modules", proficiency: 88 }
+        { name: "Tailwind CSS", detail: "Rapid UI prototyping with utility-first approach" },
+        { name: "shadcn/ui", detail: "Composed accessible component libraries" },
+        { name: "Vuetify", detail: "Material Design dashboards with custom theming" },
+        { name: "Pinia", detail: "Modular state management for Vue 3 apps" },
+        { name: "Zustand & Redux", detail: "Centralized state for complex React workflows" },
+        { name: "TanStack Query", detail: "Optimistic updates and intelligent cache invalidation" },
+        { name: "SCSS / CSS Modules", detail: "Scoped styling with maintainable architectures" },
       ],
     },
     {
       name: "Backend & Integrations",
       icon: <Server className="h-5 w-5" />,
       skills: [
-        { name: "Node.js & Express.js", proficiency: 84 },
-        { name: "REST API Integration", proficiency: 95 },
-        { name: "PWA (Progressive Web Apps)", proficiency: 80 },
-        { name: "Form Handling & Validation", proficiency: 92 },
-        { name: "WebSockets & Sync", proficiency: 75 }
+        { name: "Node.js & Express.js", detail: "RESTful APIs with middleware and auth layers" },
+        { name: "REST API Integration", detail: "Consumed 20+ third-party and internal endpoints" },
+        { name: "PWA", detail: "Offline-first apps with service workers and caching" },
+        { name: "Form Handling & Validation", detail: "Zod + React Hook Form for robust data pipelines" },
+        { name: "WebSockets & Sync", detail: "Real-time data streams and live dashboards" },
       ],
     },
     {
       name: "Databases & DevTools",
       icon: <Database className="h-5 w-5" />,
       skills: [
-        { name: "PostgreSQL", proficiency: 82 },
-        { name: "MySQL & NoSQL", proficiency: 78 },
-        { name: "Docker", proficiency: 72 },
-        { name: "Git & GitHub Workflows", proficiency: 90 },
-        { name: "CI/CD & Hosting (Vercel/Netlify)", proficiency: 85 }
+        { name: "PostgreSQL", detail: "Relational schema design and query optimization" },
+        { name: "MySQL & NoSQL", detail: "Flexible data modeling for varied use cases" },
+        { name: "Docker", detail: "Containerized development and deployment workflows" },
+        { name: "Git & GitHub Workflows", detail: "Branch strategies, PRs, and code reviews" },
+        { name: "CI/CD & Hosting", detail: "Automated pipelines on Vercel, Netlify, and GitHub Actions" },
       ],
     },
   ]
@@ -99,32 +99,38 @@ export default function Skills() {
               <Card className="h-full bg-card/45 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-300">
                 <CardContent className="p-6">
                   {/* Category Title */}
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-3 mb-5">
                     <div className="p-2.5 rounded-full bg-primary/10 text-primary border border-primary/25 shadow-[0_0_10px_rgba(139,92,246,0.15)]">
                       {category.icon}
                     </div>
                     <h3 className="text-lg font-bold">{category.name}</h3>
                   </div>
 
-                  {/* Skills Grid/List */}
-                  <div className="space-y-4">
-                    {category.skills.map((skill) => (
-                      <div key={skill.name}>
-                        <div className="flex justify-between mb-1.5 text-sm">
-                          <span className="font-medium text-slate-300">{skill.name}</span>
-                          <span className="text-xs text-muted-foreground font-semibold">{skill.proficiency}%</span>
+                  {/* Skills List */}
+                  <div className="space-y-0">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                        viewport={{ once: true }}
+                        className={`flex items-start gap-3 py-3 group ${
+                          skillIndex !== category.skills.length - 1
+                            ? "border-b border-border/20"
+                            : ""
+                        }`}
+                      >
+                        <CheckCircle2 className="h-4 w-4 text-primary/70 mt-0.5 shrink-0 group-hover:text-primary transition-colors duration-200" />
+                        <div className="min-w-0">
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                            {skill.name}
+                          </span>
+                          <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                            {skill.detail}
+                          </p>
                         </div>
-                        {/* Progressive Bar */}
-                        <div className="h-2 bg-muted/60 rounded-full overflow-hidden border border-border/10">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.proficiency}%` }}
-                            transition={{ duration: 0.8, delay: 0.1 }}
-                            viewport={{ once: true }}
-                            className="h-full bg-gradient-to-r from-primary via-indigo-500 to-accent rounded-full"
-                          ></motion.div>
-                        </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </CardContent>

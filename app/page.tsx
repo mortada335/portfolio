@@ -5,6 +5,7 @@ import Skills from "@/components/skills"
 import Projects from "@/components/projects"
 import Experience from "@/components/experience"
 import Contact from "@/components/contact"
+import Footer from "@/components/Footer"
 import ThemeToggle from "@/components/theme-toggle"
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Contact />
+      <Footer />
     </main>
   )
 }
