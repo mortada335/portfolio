@@ -9,8 +9,8 @@ import Footer from "@/components/Footer"
 import ThemeToggle from "@/components/theme-toggle"
 
 export const metadata: Metadata = {
-  title: "Full-Stack Developer Portfolio",
-  description: "A professional portfolio showcasing full-stack development skills and projects",
+  title: "Mortada Ahmed | Front-End Developer (React & Vue)",
+  description: "Portfolio of Mortada Ahmed — Front-End Developer specializing in Vue.js, React, Next.js, and high-performance UI engineering.",
 }
 
 export default function Home() {

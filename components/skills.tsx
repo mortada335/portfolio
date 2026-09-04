@@ -52,7 +52,6 @@ export default function Skills() {
         { name: "REST API Integration", detail: "Consumed 20+ third-party and internal endpoints" },
         { name: "PWA", detail: "Offline-first apps with service workers and caching" },
         { name: "Form Handling & Validation", detail: "Zod + React Hook Form for robust data pipelines" },
-        { name: "WebSockets & Sync", detail: "Real-time data streams and live dashboards" },
       ],
     },
     {
@@ -61,9 +60,6 @@ export default function Skills() {
       skills: [
         { name: "PostgreSQL", detail: "Relational schema design and query optimization" },
         { name: "MySQL & NoSQL", detail: "Flexible data modeling for varied use cases" },
-        { name: "Docker", detail: "Containerized development and deployment workflows" },
-        { name: "Git & GitHub Workflows", detail: "Branch strategies, PRs, and code reviews" },
-        { name: "CI/CD & Hosting", detail: "Automated pipelines on Vercel, Netlify, and GitHub Actions" },
       ],
     },
   ]

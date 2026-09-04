@@ -28,7 +28,7 @@ const Footer = () => {
               Mortada Ahmed
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Software Developer crafting premium web experiences with Vue.js, React, and modern full-stack technologies.
+              Front-End Developer (React & Vue) crafting scalable, high-performance digital products and premium user experiences.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="mailto:mortadaahmed335@gmail.com"
+                href="mailto:mortadaahmad56@gmail.com"
                 className="p-2.5 rounded-full border border-border/50 bg-muted/30 text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)] transition-all duration-300"
                 aria-label="Email"
               >

@@ -14,7 +14,7 @@ export default function Hero() {
 
   const codeToType = `const developer = {
   name: "Mortada Ahmed",
-  role: "Software Developer",
+  role: "Front-End Developer (React & Vue)",
   location: "Baghdad, Iraq",
   education: "CS @ UoT Baghdad",
   skills: [
@@ -121,7 +121,7 @@ export default function Hero() {
 
           <h2 className="text-2xl md:text-3xl font-bold text-muted-foreground flex items-center gap-2">
             <Code className="h-6 w-6 text-primary" />
-            Software Developer
+            Front-End Developer (React & Vue)
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
@@ -189,7 +189,6 @@ export default function Hero() {
             <div className="flex items-center justify-between px-1 mb-1">
               <span className="text-[10px] font-mono tracking-wider text-muted-foreground/80 flex items-center gap-1">
                 <Monitor className="h-3 w-3" />
-                TACTILE MECHANICAL MOCKUP
               </span>
               {activeKey && (
                 <span className="text-[10px] font-mono font-bold text-primary animate-pulse text-glow-primary">

@@ -8,8 +8,8 @@ import { Suspense } from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Full-Stack Developer Portfolio",
-  description: "A professional portfolio showcasing full-stack development skills and projects",
+  title: "Mortada Ahmed | Front-End Developer (React & Vue)",
+  description: "Front-end Developer with 3 years of professional experience specializing in Vue.js and React, engineering scalable, high-performance web products.",
   icons: {
     icon: "/favicon.png",
   }

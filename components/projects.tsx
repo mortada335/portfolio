@@ -30,6 +30,21 @@ export default function Projects() {
     setTimeout(() => {
       setRepos([
         {
+          id: 0,
+          name: "Multi-Tenant School Management System SaaS",
+          description: "A production-grade multi-tenant SaaS platform featuring path-based tenant isolation, academic-year-scoped operations, and real-time management across 8+ administrative modules.",
+          bullets: [
+            "Built a multi-tenant SaaS platform with path-based tenant isolation and academic-year-scoped data across 8+ administration modules.",
+            "Implemented real-time attendance tracking, term-based grade evaluation, and fee/payment dashboards backed by Cloud Firestore.",
+            "Designed a responsive, accessible UI with Tailwind CSS v4 and shadcn/ui primitives.",
+            "Configured Firebase Authentication and Firestore security rules to enforce strict tenant data isolation."
+          ],
+          html_url: "https://github.com/Mortada335/school-management-saas",
+          homepage: "",
+          topics: ["react", "typescript", "tailwind", "firebase", "saas", "multi-tenant"],
+          language: "React 19",
+        },
+        {
           id: 1,
           name: "Car Gallery Website",
           description: "A full-stack vehicle showcase platform with smart filtering, comparison tools, and a multi-branch inventory management backend.",
@@ -118,21 +133,6 @@ export default function Projects() {
         },
         {
           id: 7,
-          name: "ERP Front-End System",
-          description: "A comprehensive enterprise resource planning frontend with modules for operations tracking, analytics dashboards, and workflow automation.",
-          bullets: [
-            "Developed new ERP dashboard features including modules for operations, analytics, and workflow monitoring.",
-            "Improved UI consistency and usability.",
-            "Performed thorough UI testing and debugging.",
-            "Collaborated with backend engineers to integrate multiple API endpoints."
-          ],
-          html_url: "https://github.com/Mortada335/erp-system",
-          homepage: "",
-          topics: ["vue", "rest-api", "tailwind", "aswar-group"],
-          language: "Vue",
-        },
-        {
-          id: 8,
           name: "Al-Taawon Sales Dashboard",
           description: "A sales management dashboard rebuilt with ShadCN + React, featuring transactional form validation, payment workflows, and consistent design system components.",
           bullets: [
@@ -152,6 +152,31 @@ export default function Projects() {
   }, [])
 
   const codeSnippets = {
+    "Multi-Tenant School Management System SaaS": `// Firestore Tenant Isolation Rule & Academic Year Scope Guard
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isTenantMember(tenantId) {
+      return isAuthenticated() && 
+        request.auth.token.tenantId == tenantId;
+    }
+
+    match /tenants/{tenantId}/academicYears/{yearId}/{module}/{document=**} {
+      allow read, write: if isTenantMember(tenantId) &&
+        request.auth.token.role in ['admin', 'superadmin', 'registrar'];
+    }
+
+    match /tenants/{tenantId}/attendance/{recordId} {
+      allow read: if isTenantMember(tenantId);
+      allow write: if isTenantMember(tenantId) && 
+        request.auth.token.role in ['teacher', 'admin'];
+    }
+  }
+}`,
     "Car Gallery Website": `// Vue.js Composition API: Vehicle inventory filtering controller
 import { ref, computed } from 'vue'
 import { Car } from '@/types'
@@ -296,24 +321,6 @@ export function drawTrackingFrames(canvas: HTMLCanvasElement, telemetry: any[]) 
       ctx.fillText(\`\${object.label} (\${Math.round(object.confidence * 100)}%)\`, object.x, object.y - 5)
     }
   })
-}`,
-    "ERP Front-End System": `// Task dispatch pipeline executing REST operations with exponential backoff
-export async function syncTaskWithRetry(taskData: any, retries = 3, delay = 1000): Promise<any> {
-  try {
-    const res = await fetch('/api/erp/sync-task', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(taskData)
-    })
-    if (!res.ok) throw new Error('Sync failed')
-    return await res.json()
-  } catch (error) {
-    if (retries > 0) {
-      await new Promise(r => setTimeout(r, delay))
-      return syncTaskWithRetry(taskData, retries - 1, delay * 2)
-    }
-    throw error;
-  }
 }`,
     "Al-Taawon Sales Dashboard": `// React standard schema wrapper securing transactional forms
 import { useForm } from 'react-hook-form'
